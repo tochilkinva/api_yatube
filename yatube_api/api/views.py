@@ -1,8 +1,8 @@
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404
+from posts.models import Group, Post, User
 from rest_framework import viewsets
 
-from .models import Group, Post, User
 from .serializers import (CommentSerializer, GroupSerializer, PostSerializer,
                           UserSerializer)
 

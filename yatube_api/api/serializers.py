@@ -1,14 +1,14 @@
+from posts.models import Comment, Group, Post, User
 from rest_framework import serializers
-
-from .models import Comment, Group, Post, User
 
 
 class UserSerializer(serializers.ModelSerializer):
-    posts = serializers.StringRelatedField(many=True, read_only=True)
+    posts = serializers.SlugRelatedField(many=True, read_only=True,
+                                         slug_field='text')
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'first_name', 'last_name', 'posts')
+        fields = '__all__'
 
 
 class PostSerializer(serializers.ModelSerializer):
